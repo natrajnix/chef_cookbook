@@ -1,0 +1,39 @@
+---
+driver:
+  name: ec2
+  region: ap-south-1
+  instance_type: t2.medium
+  subnet_id: subnet-xxxxxx
+  security_group_ids: ["sg-xxxxx", "sg-xxxxxxx"]
+  assocaite_public_ip: true
+  aws_ssh_key_id: test-kitchen
+  tags:
+    Name: "Test"
+
+provisioner:
+  name: chef_zero
+  log_level: <%= ENV['CHEF_LOG_LEVEL'] || "info" %>
+  require_chef_omnibus: <%= ENV['CHEF_VERSION'] || true %>
+  client_rb:
+    chef_license: accept
+
+transport:
+  username: ec2-user
+  ssh_key: nil
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: default
+    driver:
+      image_id: ami-xxxx
+
+suites:
+  - name: default
+    run_list:
+      - recipe[test_cookbook::default]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
