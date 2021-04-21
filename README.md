@@ -15,6 +15,16 @@ Required chefdk ,AWSCLI ,vscode(any Choice of IDE)
 
 Here using the Kitchen-CI AWS Driver to test the cookbook , it required AWS Account
 
+Note: update the Kitchen.yml file with your aws deatils
+
+       1. subnet_id: subnet-xxxxxx
+       2. security_group_ids: ["sg-xxxxx", "sg-xxxxxxx"]
+       3. aws_ssh_key_id: xxxx
+       4. image_id: ami-xxxx
+       5. ssh_key: local pem key path
+
+
+
 Local Setup:
 
 1. Clone this repo  
@@ -30,7 +40,9 @@ Local Setup:
 
 Kitchen Commands
 
-            Kitchen create (Will Create and aws instance)
+            Kitchen create (Will Create an aws instance)
             Kitchen converge (run the receipe in the instance)
-            kitchen destroy (Terminate the instance)
             kitchen verify (run the inspec cases)
+            kitchen destroy (Terminate the instance)
+
+Reference : https://docs.chef.io/resources/
