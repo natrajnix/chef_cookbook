@@ -1,6 +1,9 @@
 ## Test Cookbook
+REQUIRED AWS account to test this cookbook
 
-This cookbook will create a test directory and test user
+Test Cookbook which will create an user and directory 
+       1. The following resources will be created in the AWS environment
+       2. Included inspecs to verify the resource
 
 ## Installation & Configuration
 
@@ -12,20 +15,15 @@ Required chefdk ,AWSCLI ,vscode(any Choice of IDE)
 
 [vscode](https://code.visualstudio.com/download) Install Vscode
 
-
-Here using the Kitchen-CI AWS Driver to test the cookbook , it required AWS Account
-
 Note: update the Kitchen.yml file with your aws deatils
 
        1. subnet_id: subnet-xxxxxx
        2. security_group_ids: ["sg-xxxxx", "sg-xxxxxxx"]
        3. aws_ssh_key_id: xxxx
        4. image_id: ami-xxxx
-       5. ssh_key: local pem key path
+       5. ssh_key: <<PEM_PATH>>
 
-
-
-Local Setup:
+## Local Setup
 
 1. Clone this repo  
 
