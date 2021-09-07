@@ -2,7 +2,9 @@
 REQUIRED AWS account to test this cookbook
 
 Test Cookbook which will create an user and directory 
+
        1. The following resources will be created in the AWS environment
+       
        2. Included inspecs to verify the resource
 
 ## Installation & Configuration
